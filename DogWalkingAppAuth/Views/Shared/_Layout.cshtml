@@ -4,9 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
+    @Styles.Render("~/assets/css")
+    @Scripts.Render("~/assets/js")
+    @Scripts.Render("~/assets/vendor/bootstrap")
+    @Styles.Render("~/assets/bootstrap")
+    @Scripts.Render("~/assets/vendor/countTo")
+    @Scripts.Render("~/assets/vendor/isotope")
+    @Scripts.Render("~/assets/vendor/lightcase")
+    @Styles.Render("~/assets/vendor/lightcase")
+    @Scripts.Render("~/assets/vendor/owlcarousel")
+    @Styles.Render("~/assets/vendor/owlcarousel")
+    @Scripts.Render("~/assets/vendor/select2")
+    @Styles.Render("~/assets/vendor/select2")
+    @Scripts.Render("~/assets/vendor/stellar")
+    @Scripts.Render("~/assets/vendor/waypoints")
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -38,8 +49,8 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/assets/bootstrap")
+    @Scripts.Render("~/assets/css")
     @RenderSection("scripts", required: false)
 </body>
 </html>
