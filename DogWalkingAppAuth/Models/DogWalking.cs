@@ -20,13 +20,14 @@ namespace DogWalkingAppAuth.Models
         public string WalkerName { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string Dog { get; set; }
+        public int DogId { get; set; }
 
         public decimal Distance { get; set; }
 
         [Required]
         [StringLength(10)]
         public string Affirmations { get; set; }
+
+      
     }
 }

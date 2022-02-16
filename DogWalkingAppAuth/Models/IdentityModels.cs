@@ -29,5 +29,9 @@ namespace DogWalkingAppAuth.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<DogWalkingAppAuth.Models.Dog> Dogs { get; set; }
+
+        public System.Data.Entity.DbSet<DogWalkingAppAuth.Models.DogWalking> DogWalkings { get; set; }
     }
 }

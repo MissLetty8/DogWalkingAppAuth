@@ -1,0 +1,58 @@
+﻿@model IEnumerable<DogWalkingAppAuth.Models.DogWalking>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Great Job! Now, Log your Walk!</h2>
+
+<p>
+    @Html.ActionLink("Log Your Walk", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.WalkDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WalkerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DogId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Distance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Affirmations)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.WalkDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WalkerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DogId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Distance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Affirmations)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.WalkId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.WalkId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.WalkId })
+        </td>
+    </tr>
+}
+
+</table>

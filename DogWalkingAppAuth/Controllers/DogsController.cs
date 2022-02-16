@@ -11,107 +11,108 @@ using DogWalkingAppAuth.Models;
 namespace DogWalkingAppAuth.Controllers
 {
     [Authorize]
-    public class WalkersController : Controller
+    public class DogsController : Controller
     {
-        private DogWalkingDataContext db = new DogWalkingDataContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Walkers
+        // GET: Dogs
+       
         public ActionResult Index()
         {
-            return View(db.Walkers.ToList());
+            return View(db.Dogs.ToList());
         }
 
-        // GET: Walkers/Details/5
+        // GET: Dogs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Walker walker = db.Walkers.Find(id);
-            if (walker == null)
+            Dog dog = db.Dogs.Find(id);
+            if (dog == null)
             {
                 return HttpNotFound();
             }
-            return View(walker);
+            return View(dog);
         }
 
-        // GET: Walkers/Create
+        // GET: Dogs/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Walkers/Create
+        // POST: Dogs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "WalkerID,Walker_Name,Role")] Walker walker)
+        public ActionResult Create([Bind(Include = "DogId,DogName,DogBreed")] Dog dog)
         {
             if (ModelState.IsValid)
             {
-                db.Walkers.Add(walker);
+                db.Dogs.Add(dog);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(walker);
+            return View(dog);
         }
 
-        // GET: Walkers/Edit/5
+        // GET: Dogs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Walker walker = db.Walkers.Find(id);
-            if (walker == null)
+            Dog dog = db.Dogs.Find(id);
+            if (dog == null)
             {
                 return HttpNotFound();
             }
-            return View(walker);
+            return View(dog);
         }
 
-        // POST: Walkers/Edit/5
+        // POST: Dogs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "WalkerID,Walker_Name,Role")] Walker walker)
+        public ActionResult Edit([Bind(Include = "DogId,DogName,DogBreed")] Dog dog)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(walker).State = EntityState.Modified;
+                db.Entry(dog).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(walker);
+            return View(dog);
         }
 
-        // GET: Walkers/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Dogs/Delete/5
+        public ActionResult Delete(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Walker walker = db.Walkers.Find(id);
-            if (walker == null)
+            Dog dog = db.Dogs.Find(id);
+            if (dog == null)
             {
                 return HttpNotFound();
             }
-            return View(walker);
+            return View(dog);
         }
 
-        // POST: Walkers/Delete/5
+        // POST: Dogs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Walker walker = db.Walkers.Find(id);
-            db.Walkers.Remove(walker);
+            Dog dog = db.Dogs.Find(id);
+            db.Dogs.Remove(dog);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -9,11 +9,13 @@ namespace DogWalkingAppAuth.Models
     [Table("Dog")]
     public partial class Dog
     {
-        [StringLength(50)]
-        public string DogId { get; set; }
+        
+        public int DogId { get; set; }
 
         public string DogName { get; set; }
 
         public string DogBreed { get; set; }
+
+        public List<DogWalking> DogWalkingList { get; set; } = new List<DogWalking>();
     }
 }
