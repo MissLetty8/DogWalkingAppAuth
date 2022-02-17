@@ -22,6 +22,8 @@ namespace DogWalkingAppAuth.Models
         [Required]
         public int DogId { get; set; }
 
+        public string DogName { get; set; }
+
         public decimal Distance { get; set; }
 
         [Required]

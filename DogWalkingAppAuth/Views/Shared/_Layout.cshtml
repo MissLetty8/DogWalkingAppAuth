@@ -4,12 +4,148 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Walk The Dog Application</title>
-    @Styles.Render("~/Content/css")
+    @*@Styles.Render("~/Content/css")*@
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/bootstrap-sketchy.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Content/bootstrap-sketchy.css" asp-append-version="true" />
+
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+            .sidebar a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+                .sidebar a:hover {
+                    color: #f1f1f1;
+                }
+
+            .sidebar .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+        }
+
+            .openbtn:hover {
+                background-color: #444;
+            }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+    </style>
 
 </head>
-<body>
+
+
+
+<body style="
+    padding-top: 100px;
+    color: darkgreen;">
     <header>
+        <div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+            @Html.Partial("_LoginPartial")
+        </div>
+    </header>
+    <div id="mySidebar" class="sidebar">
+        <ul class="navbar-nav">
+            <li style="padding-left: 10px">@Html.ActionLink("Home", "Index", "Home")</li>
+            <li style="padding-left: 10px">@Html.ActionLink("Walkers", "Index", "Walkers")</li>
+            <li style="padding-left: 10px">@Html.ActionLink("Dogs", "Index", "Dogs")</li>
+            <li style="padding-left: 10px">@Html.ActionLink("Logged Walks", "Index", "DogWalkings")</li>
+            <li style="padding-left: 10px">@Html.ActionLink("About", "About", "Home")</li>
+            <li style="padding-left: 10px">@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <li style="padding-left: 10px">@Html.Partial("_LoginPartial")
+</ul>
+    </div>
+
+
+
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">☰ Walk The Dog </button>
+
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+
+
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Walk The Dog Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+
+@*<button>
+        @Html.ActionLink("Walk The Dog", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav">
+            <li style="padding-left:10px">@Html.ActionLink("Home", "Index", "Home")</li>
+            <li style="padding-left: 10px">@Html.ActionLink("About", "About", "Home")</li>
+            <li style="padding-left: 10px">@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <li style="padding-left: 10px">@Html.ActionLink("Walkers", "Index", "Walkers")</li>
+            <li style="padding-left: 10px">@Html.ActionLink("Dogs", "Index", "Dogs")</li>
+            <li style="padding-left: 10px">@Html.ActionLink("Logged Walks", "Index", "DogWalkings")</li>
+        </ul>
+
+    </div>*@
+
+
+@*<header>
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -29,25 +165,12 @@
                         <li>@Html.ActionLink("Walkers", "Index", "Walkers")</li>
                         <li>@Html.ActionLink("Dogs", "Index", "Dogs")</li>
                         <li>@Html.ActionLink("Logged Walks", "Index", "DogWalkings")</li>
-                       
+
                     </ul>
-                    
+
 
                     @Html.Partial("_LoginPartial")
-               
+
             </div>
         </div>
-    </header>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Walk The Dog Application</p>
-        </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
-</html>
+    </header>*@

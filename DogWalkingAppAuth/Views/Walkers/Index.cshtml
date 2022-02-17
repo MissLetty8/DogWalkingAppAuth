@@ -1,11 +1,13 @@
 ﻿@model IEnumerable<DogWalkingAppAuth.Models.Walker>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "List of Walkers";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Walkers</h2>
+<h2 style="
+    padding-top: 70px;
+    color: darkgreen;">Walkers</h2>
 
 <p>
     @Html.ActionLink("Add A Walker", "Create")
@@ -13,10 +15,10 @@
 <table class="table">
     <tr>
         <th>
-            Name
+            ID
         </th>
         <th>
-            ID
+            Name
         </th>
         <th></th>
     </tr>
@@ -24,10 +26,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Walker_Name)
+            @Html.DisplayFor(modelItem => item.WalkerID)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.WalkerID)
+            @Html.DisplayFor(modelItem => item.Walker_Name)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.WalkerID }) |

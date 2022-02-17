@@ -1,11 +1,14 @@
 ﻿@model IEnumerable<DogWalkingAppAuth.Models.DogWalking>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Log A Walk";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Great Job! Now, Log your Walk!</h2>
+<h2 style="
+    padding-top: 70px;
+    color: darkgreen;">
+    WELCOME TO YOUR WALKING LOG!</h2>
 
 <p>
     @Html.ActionLink("Log Your Walk", "Create")
@@ -13,46 +16,58 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.WalkDate)
+           Walk Id
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.WalkerName)
+           Date
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DogId)
+           Walker Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Distance)
+           Dog Id
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Affirmations)
+           Dog Name
+        </th>
+        <th>
+           Distance
+        </th>
+        <th>
+           Affirmations
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.WalkDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WalkerName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DogId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Distance)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Affirmations)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.WalkId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.WalkId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.WalkId })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.WalkId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.WalkDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.WalkerName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DogId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DogName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Distance)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Affirmations)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.WalkId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.WalkId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.WalkId })
+    </td>
+</tr>
 }
 
 </table>

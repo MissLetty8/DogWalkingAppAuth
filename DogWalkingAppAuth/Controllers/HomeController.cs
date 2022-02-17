@@ -15,14 +15,28 @@ namespace DogWalkingAppAuth.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Explore our About Section.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "To contact me for hire, or for any web page suggestions, please feel free to use any of the options below.";
+
+            return View();
+        }
+
+        public ActionResult ObesityFacts()
+        {
+            ViewBag.Message = "Sad Obesity Dog Facts";
+
+            return View();
+        }
+
+        public ActionResult PhotoAlbum()
+        {
+            ViewBag.Message = "Here you can upload and view the wonderful walks shared with you Dog.";
 
             return View();
         }

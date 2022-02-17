@@ -1,11 +1,13 @@
 ﻿@model IEnumerable<DogWalkingAppAuth.Models.Dog>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "List of Dogs";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>List of Dogs</h2>
+<h2 style="
+    padding-top: 70px;
+    color: darkgreen;">List of Dogs</h2>
 
 <p>
     @Html.ActionLink("Add Dog", "Create")

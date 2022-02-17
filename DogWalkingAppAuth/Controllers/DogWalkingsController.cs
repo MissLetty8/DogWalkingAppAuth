@@ -48,7 +48,7 @@ namespace DogWalkingAppAuth.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "WalkId,WalkDate,WalkerName,DogId,Distance,Affirmations")] DogWalking dogWalking)
+        public ActionResult Create([Bind(Include = "WalkId,WalkDate,WalkerName,DogId,DogName,Distance,Affirmations")] DogWalking dogWalking)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +80,7 @@ namespace DogWalkingAppAuth.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "WalkId,WalkDate,WalkerName,DogId,Distance,Affirmations")] DogWalking dogWalking)
+        public ActionResult Edit([Bind(Include = "WalkId,WalkDate,WalkerName,DogId,DogName,Distance,Affirmations")] DogWalking dogWalking)
         {
             if (ModelState.IsValid)
             {
